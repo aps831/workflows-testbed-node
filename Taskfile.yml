@@ -1,5 +1,7 @@
 ---
 version: "3"
+env:
+  NODE_VERSION: 16.17.1-slim
 tasks:
   # Static Analysis
   check:
@@ -20,3 +22,57 @@ tasks:
       - trivy fs .
       - semgrep --config=p/security-audit .
       - semgrep --config=p/secrets .
+  # Test
+  test:unit:watch:
+    summary: Run unit tests in watch mode
+    desc: Run unit tests in watch mode
+    cmds:
+      - npm run test:unit:watch
+  test:unit:once:
+    summary: Run unit tests once
+    desc: Run unit tests once
+    cmds:
+      - npm run test:unit:once
+  test:integration:interactive:
+    summary: Run integration tests in interactive mode
+    desc: Run integration tests in interactive mode
+    cmds:
+      - npm run test:integration:interactive
+  test:integration:headless:
+    summary: Run integration tests in headless mode
+    desc: Run integration tests in headless mode
+    cmds:
+      - npm run test:integration:headless
+  # Checks
+  check:audit:
+    summary: Run audit
+    desc: Run audit
+    cmds:
+      - npm audit --omit=dev > checks/audit.txt || true
+      - cat checks/audit.txt
+  check:depcheck:
+    summary: Run depcheck
+    desc: Run depcheck
+    cmds:
+      - npm_config_yes=true npx depcheck > checks/depcheck.txt || true
+      - cat checks/depcheck.txt
+  # Build
+  build:host:
+    summary: Build on host
+    desc: Build on host
+    cmds:
+      - rm -rf checks && mkdir checks
+      - npm audit --omit=dev > checks/audit.txt || true
+      - cat checks/audit.txt
+      - npm_config_yes=true npx depcheck > checks/depcheck.txt || true
+      - cat checks/depcheck.txt
+      - npm run test:unit:once
+      - npm run build
+  build:container:
+    summary: Build in container
+    desc: Build in container
+    cmds:
+      - docker pull node:$NODE_VERSION
+      - docker build . --target output --progress=plain --build-arg NODE_VERSION="${NODE_VERSION}"
+        --output type=local,dest=.
+      - docker build . --target status --progress=plain --build-arg NODE_VERSION="${NODE_VERSION}"

@@ -1,0 +1,20 @@
+{
+  "name": "testbed-node",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit:watch": "vitest watch --coverage",
+    "test:unit:once": "vitest run --coverage",
+    "test:integration:interactive": "node integration.js interactive",
+    "test:integration:headless": "node integration.js headless"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.29.2",
+    "vite": "^4.1.0",
+    "vitest": "^0.29.2"
+  }
+}
