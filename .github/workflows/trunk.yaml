@@ -4,6 +4,8 @@ on:
   pull_request: {}
 permissions: read-all
 jobs:
-  check:
-    name: trunk check
+  trunk:
     uses: aps831/workflows/.github/workflows/trunk.yaml@master
+    with:
+      node-version: 16.17.1
+      install-deps-script: npm ci

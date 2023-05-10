@@ -11,6 +11,10 @@
       {
         "filePath": ".tool-versions",
         "valuePath": "nodejs"
+      },
+      {
+        "filePath": ".github/workflows/trunk.yaml",
+        "valuePath": ".jobs.trunk.with.node-version"
       }
     ]
   }
