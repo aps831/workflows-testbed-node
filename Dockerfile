@@ -24,7 +24,7 @@ COPY --from=build /app/checks/ /checks
 COPY --from=build /app/coverage/ /coverage
 COPY --from=build /app/dist/ /dist
 
-FROM alpine:3.14 AS status
+FROM alpine:3.18 AS status
 COPY --from=build /app/EXIT_STATUS_FILE_0/ /EXIT_STATUS_FILE_0
 COPY --from=build /app/EXIT_STATUS_FILE_1/ /EXIT_STATUS_FILE_1
 COPY --from=build /app/EXIT_STATUS_FILE_2/ /EXIT_STATUS_FILE_2
