@@ -4,9 +4,11 @@
     "value": "16.17.1",
     "files": [
       {
-        "filePath": "Taskfile.yml",
-        "valuePath": ".env.NODE_VERSION",
-        "valueSuffix": "-slim"
+        "filePath": "Dockerfile",
+        "valuePath": ".FROM[0]",
+        "valuePrefix": "node:",
+        "valueSuffix": "@",
+        "partialMatch": true
       },
       {
         "filePath": ".tool-versions",

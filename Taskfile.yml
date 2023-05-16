@@ -1,7 +1,5 @@
 ---
 version: "3"
-env:
-  NODE_VERSION: 16.17.1-slim
 tasks:
   # Static Analysis
   check:
@@ -72,9 +70,8 @@ tasks:
     summary: Build in container
     desc: Build in container
     cmds:
-      - docker pull node:$NODE_VERSION
-      - docker build . --target output --progress=plain --build-arg NODE_VERSION="${NODE_VERSION}" --output type=local,dest=.
-      - docker build . --target status --progress=plain --build-arg NODE_VERSION="${NODE_VERSION}"
+      - docker build . --target output --progress=plain --output type=local,dest=.
+      - docker build . --target status --progress=plain
   tool-versions:upgrade:repo:
     summary: Upgrade version in .tool-versions
     desc: Upgrade version in .tool-versions
