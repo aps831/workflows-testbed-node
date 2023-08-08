@@ -15,6 +15,7 @@ RUN --mount=type=cache,uid=1000,gid=1000,target=/home/node/.npm \
     (npm ci || echo $? > EXIT_STATUS_FILE_0) && \
     (npm audit --omit=dev > checks/audit.txt || true) && \
     (npm_config_yes=true npx depcheck > checks/depcheck.txt || true) && \
+    (npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file sbom/cyclonedx.json || true) && \
     (npm run test:unit:once || echo $? > EXIT_STATUS_FILE_1) && \
     (npm run build || echo $? > EXIT_STATUS_FILE_2) && \
     (npm run test:integration:headless || echo $? > EXIT_STATUS_FILE_3)
@@ -23,6 +24,7 @@ FROM scratch AS output
 COPY --from=build /app/checks/ /checks
 COPY --from=build /app/coverage/ /coverage
 COPY --from=build /app/dist/ /dist
+COPY --from=build /app/sbom/ /sbom
 
 FROM alpine:3.14 AS status
 COPY --from=build /app/EXIT_STATUS_FILE_0/ /EXIT_STATUS_FILE_0

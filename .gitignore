@@ -1,4 +1,5 @@
 checks/
 coverage/
+sbom/
 dist/
 node_modules/

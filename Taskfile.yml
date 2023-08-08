@@ -45,6 +45,8 @@ tasks:
       - cat checks/audit.txt
       - npm_config_yes=true npx depcheck > checks/depcheck.txt || true
       - cat checks/depcheck.txt
+      - rm -rf sbom && mkdir sbom
+      - npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file sbom/cyclonedx.json || true
       - npm run test:unit:once
       - npm run build
   build:container:

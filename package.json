@@ -13,6 +13,7 @@
     "test:integration:headless": "node integration.js headless"
   },
   "devDependencies": {
+    "@cyclonedx/cyclonedx-npm": "^1.13.0",
     "@vitest/coverage-c8": "^0.29.2",
     "vite": "^4.1.0",
     "vitest": "^0.29.2"
