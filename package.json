@@ -12,9 +12,6 @@
     "test:integration:interactive": "node integration.js interactive",
     "test:integration:headless": "node integration.js headless"
   },
-  "dependencies": {
-    "got": "9.6.0"
-  },
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^1.13.0",
     "@vitest/coverage-c8": "^0.29.2",
