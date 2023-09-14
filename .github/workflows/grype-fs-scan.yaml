@@ -7,7 +7,7 @@ on:
       - "master"
 jobs:
   scan:
-    uses: aps831/workflows/.github/workflows/grype-fs-scan.yaml@master
+    uses: aps831/workflows/.github/workflows/grype-fs-scan.yaml@feat/sarif
 permissions:
   contents: read
   issues: read
