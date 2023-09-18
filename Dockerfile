@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.3
-FROM node:16.17.1@sha256:674750127bbf45f52660ada71ed1f1491d15e94c16583bff6df0df2489481049 AS build
+FROM node:20.6.1@sha256:14bd39208dbc0eb171cbfb26ccb9ac09fa1b2eba04ccd528ab5d12983fd9ee24 AS build
 USER node
 WORKDIR /app
 COPY --chown=node:node . /app
