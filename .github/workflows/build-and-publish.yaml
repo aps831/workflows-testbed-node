@@ -10,7 +10,6 @@ jobs:
   build:
     permissions:
       contents: write
-      packages: write
       issues: write
       pull-requests: write
     uses: aps831/workflows/.github/workflows/publish-nodejs-in-docker-directory-artifact.yaml@refactor/build-release
@@ -21,4 +20,4 @@ jobs:
       templated-files: |
         README.tpl.md
     secrets:
-      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
