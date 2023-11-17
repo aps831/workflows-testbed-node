@@ -16,7 +16,7 @@ RUN --mount=type=cache,uid=1000,gid=1000,target=/home/node/.npm \
     (mkdir dist) && \
     (npm ci || echo $? > EXIT_STATUS_FILE_0) && \
     (npm audit --omit=dev > outputs/checks/audit.txt || true) && \
-    (npm_config_yes=true npx depcheck > /outputs/checks/depcheck.txt || true) && \
+    (npm_config_yes=true npx depcheck > outputs/checks/depcheck.txt || true) && \
     (npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json || true) && \
     (npm run-script test:unit:once || echo $? > EXIT_STATUS_FILE_1) && \
     (npm run-script build || echo $? > EXIT_STATUS_FILE_2) && \
