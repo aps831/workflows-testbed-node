@@ -6,22 +6,22 @@ tasks:
     summary: Run unit tests in watch mode
     desc: Run unit tests in watch mode
     cmds:
-      - npm run test:unit:watch
+      - npm run-script test:unit:watch
   test:unit:once:
     summary: Run unit tests once
     desc: Run unit tests once
     cmds:
-      - npm run test:unit:once
+      - npm run-script test:unit:once
   test:integration:interactive:
     summary: Run integration tests in interactive mode
     desc: Run integration tests in interactive mode
     cmds:
-      - npm run test:integration:interactive
+      - npm run-script test:integration:interactive
   test:integration:headless:
     summary: Run integration tests in headless mode
     desc: Run integration tests in headless mode
     cmds:
-      - npm run test:integration:headless
+      - npm run-script test:integration:headless
   # Checks
   check:audit:
     summary: Run audit
