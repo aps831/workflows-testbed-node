@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.15.0] - 2023-11-27
+
+### Features
+
+- Test
+
 ## [0.14.0] - 2023-11-27
 
 ### Features
@@ -16,6 +22,7 @@ All notable changes to this project will be documented in this file.
 
 - Remove dist directory on build task
 - Use npm run-script for consistency
+- Update for v0.14.0 release [skip ci]
 
 ## [0.13.0] - 2023-11-17
 
