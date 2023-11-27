@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.0] - 2023-11-27
+
+### Features
+
+- Test
+
 ## [0.17.0] - 2023-11-27
 
 ### Features
 
 - Test
+
+### Miscellaneous Tasks
+
+- Update for v0.17.0 release [skip ci]
 
 ## [0.16.0] - 2023-11-27
 
