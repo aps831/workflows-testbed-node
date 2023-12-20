@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.0] - 2023-12-20
+
+### Features
+
+- Test
+
+### Miscellaneous Tasks
+
+- Add actions read permissions [skip ci]
+- Use issue comment trigger [skip ci]
+
 ## [0.18.0] - 2023-11-27
 
 ### Features
 
 - Test
+
+### Miscellaneous Tasks
+
+- Update for v0.18.0 release [skip ci]
 
 ## [0.17.0] - 2023-11-27
 
