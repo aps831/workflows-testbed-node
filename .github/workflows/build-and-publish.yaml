@@ -1,27 +1,18 @@
 ---
 name: Build and Publish Package
 on:
-  # push:
-  #   branches:
-  #     - "master"
-  #     - "prerelease"
-  pull_request: {}
-  issue_comment:
-    types:
-      - created
+  push:
+    branches:
+      - "master"
+      - "prerelease"
 jobs:
   build:
     permissions:
       contents: write
       issues: write
       pull-requests: write
-      actions: read
-    uses: aps831/workflows/.github/workflows/publish-nodejs-in-docker-directory-artifact.yaml@refactor/build-release
+    uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact.yaml@master
     with:
-      branch-prerelease: "prerelease"
-      branch-update-base: "chore/publish-update"
-      release-on-default-branch: false
-      tag-prefix: "v"
       templated-files: |
         README.tpl.md
     secrets:
