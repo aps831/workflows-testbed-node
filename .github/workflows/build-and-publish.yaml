@@ -5,12 +5,12 @@ on:
     branches:
       - "master"
       - "prerelease"
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 jobs:
   build:
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact.yaml@master
     with:
       templated-files: |
