@@ -9,7 +9,7 @@ export default defineConfig({
         reporters: ["junit"],
         outputFile: "./outputs/unit-tests/junit.xml",
         coverage: {
-            provider: "c8",
+            provider: "v8",
             reporter: ["text", "json", "html"],
             reportsDirectory: "./outputs/coverage",
         },
