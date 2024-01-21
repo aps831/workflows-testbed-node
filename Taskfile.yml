@@ -1,0 +1,125 @@
+---
+version: "3"
+tasks:
+  # Test
+  test:unit:watch:
+    summary: Run unit tests in watch mode
+    desc: Run unit tests in watch mode
+    cmds:
+      - npm run-script test:unit:watch
+  test:unit:once:
+    summary: Run unit tests once
+    desc: Run unit tests once
+    cmds:
+      - npm run-script test:unit:once
+  test:integration:interactive:
+    summary: Run integration tests in interactive mode
+    desc: Run integration tests in interactive mode
+    cmds:
+      - npm run-script test:integration:interactive
+  test:integration:headless:
+    summary: Run integration tests in headless mode
+    desc: Run integration tests in headless mode
+    cmds:
+      - npm run-script test:integration:headless
+  # Checks
+  check:audit:
+    summary: Run audit
+    desc: Run audit
+    cmds:
+      - npm audit --omit=dev > checks/audit.txt || true
+      - cat checks/audit.txt
+  check:depcheck:
+    summary: Run depcheck
+    desc: Run depcheck
+    cmds:
+      - npm_config_yes=true npx depcheck > checks/depcheck.txt || true
+      - cat checks/depcheck.txt
+  # Build
+  build:host:
+    summary: Build on host
+    desc: Build on host
+    cmds:
+      - rm -rf outputs
+      - rm -rf dist
+      - mkdir -p outputs/checks
+      - mkdir -p outputs/sbom
+      - npm audit --omit=dev > outputs/checks/audit.txt || true
+      - cat outputs/checks/audit.txt
+      - npm_config_yes=true npx depcheck > outputs/checks/depcheck.txt || true
+      - cat outputs/checks/depcheck.txt
+      - rm -rf outputs/sbom && mkdir -p outputs/sbom
+      - npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json || true
+      - npm run-script test:unit:once
+      - npm run-script build
+      - npm run-script test:integration:headless
+  build:container:
+    summary: Build in container
+    desc: Build in container
+    cmds:
+      - rm -rf outputs
+      - rm -rf dist
+      - docker build . --target output --progress=plain --output type=local,dest=.
+      - docker build . --target status --progress=plain
+  tool-versions:upgrade:repo:
+    summary: Upgrade version in .tool-versions
+    desc: Upgrade version in .tool-versions
+    internal: true
+    silent: true
+    cmds:
+      - |
+        version=$(gh api -H "Accept: application/vnd.github+json" repos/{{ .OWNER }}/{{ .NAME }}/releases/latest | jq .tag_name -r)
+        version=${version//v}
+        sed -i "s/{{ .NAME }}.*/{{ .NAME }} $version/g" .tool-versions
+  tool-versions:upgrade:
+    summary: Upgrade versions in .tool-versions
+    desc: Upgrade versions in .tool-versions
+    cmds:
+      - task: tool-versions:upgrade:trivy
+      - task: tool-versions:upgrade:task
+  tool-versions:upgrade:trivy:
+    summary: Upgrade version of trivy in .tool-versions
+    desc: Upgrade version of trivy .tool-versions
+    cmds:
+      - task: tool-versions:upgrade:repo
+        vars:
+          OWNER: aquasecurity
+          NAME: trivy
+  tool-versions:upgrade:task:
+    summary: Upgrade version of task in .tool-versions
+    desc: Upgrade version of task .tool-versions
+    cmds:
+      - task: tool-versions:upgrade:repo
+        vars:
+          OWNER: go-task
+          NAME: task
+  semgrep:auto:
+    summary: Run semgrep static analysis with auto config
+    desc: Run semgrep static analysis with auto config
+    silent: true
+    cmds:
+      - semgrep --config=auto .
+  semgrep:security-audit:
+    summary: Run semgrep static analysis with security-audit config
+    desc: Run semgrep static analysis with security-audit config
+    silent: true
+    cmds:
+      - semgrep --config=p/security-audit .
+  semgrep:secrets:
+    summary: Run semgrep static analysis with secrets config
+    desc: Run semgrep static analysis with secrets config
+    silent: true
+    cmds:
+      - semgrep --config=p/secrets .
+  trivy:fs:
+    summary: Run trivy fs check
+    desc: Run trivy fs check
+    silent: true
+    cmds:
+      - trivy fs .
+  trivy:config:
+    summary: Run trivy config check
+    desc: Run trivy config check
+    silent: true
+    cmds:
+      - trivy config .

@@ -1,0 +1,21 @@
+{
+  "name": "testbed-node",
+  "private": true,
+  "version": "0.21.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit:watch": "vitest watch --coverage",
+    "test:unit:once": "vitest run --coverage",
+    "test:integration:interactive": "node integration.js interactive",
+    "test:integration:headless": "node integration.js headless"
+  },
+  "devDependencies": {
+    "@cyclonedx/cyclonedx-npm": "^1.13.0",
+    "@vitest/coverage-c8": "^1.2.1",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.1"
+  }
+}

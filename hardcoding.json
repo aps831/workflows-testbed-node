@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Node Version",
+    "value": "20.9.0",
+    "files": [
+      {
+        "filePath": "Dockerfile",
+        "valuePath": ".FROM[0]",
+        "valuePrefix": "node:",
+        "valueSuffix": "@",
+        "partialMatch": true
+      },
+      {
+        "filePath": ".tool-versions",
+        "valuePath": "nodejs"
+      },
+      {
+        "filePath": ".github/workflows/trunk.yaml",
+        "valuePath": ".jobs.trunk.with.node-version"
+      }
+    ]
+  }
+]
