@@ -44,6 +44,7 @@ tasks:
       - rm -rf dist
       - mkdir -p outputs/checks
       - mkdir -p outputs/sbom
+      - npm install
       - npm audit --omit=dev > outputs/checks/audit.txt || true
       - cat outputs/checks/audit.txt
       - npm_config_yes=true npx depcheck > outputs/checks/depcheck.txt || true
