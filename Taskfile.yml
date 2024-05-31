@@ -43,14 +43,15 @@ tasks:
       - rm -rf outputs
       - rm -rf dist
       - mkdir -p outputs/checks
+      - mkdir -p outputs/coverage
       - mkdir -p outputs/sbom
       - npm install
       - npm audit --omit=dev > outputs/checks/audit.txt || true
       - cat outputs/checks/audit.txt
       - npm_config_yes=true npx depcheck > outputs/checks/depcheck.txt || true
       - cat outputs/checks/depcheck.txt
-      - rm -rf outputs/sbom && mkdir -p outputs/sbom
-      - npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json || true
+      - npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json
+        || true
       - npm run-script test:unit:once
       - npm run-script build
       - npm run-script test:integration:headless
