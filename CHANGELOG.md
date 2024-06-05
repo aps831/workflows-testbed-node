@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.0] - 2024-06-05
+
+### Features
+
+- Wip
+
+### Miscellaneous Tasks
+
+- Restore branch [skip ci]
+
 ## [0.22.0] - 2024-06-05
 
 ### Features
@@ -23,6 +33,7 @@ All notable changes to this project will be documented in this file.
 - Remove redundant clean of folders [skip ci]
 - Add eslint config to avoid clash with prettier [skip ci]
 - Upgrade trunk [skip ci]
+- Update for v0.22.0 release [skip ci]
 
 ### Testing
 
