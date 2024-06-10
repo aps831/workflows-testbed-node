@@ -30,7 +30,7 @@ COPY --from=build /app/outputs/integration-tests/ /outputs/integration-tests
 COPY --from=build /app/outputs/sbom/ /outputs/sbom
 COPY --from=build /app/dist/ /dist
 
-FROM alpine:3.14 AS status
+FROM alpine:3.20 AS status
 COPY --from=build /app/EXIT_STATUS_FILE_0/ /EXIT_STATUS_FILE_0
 COPY --from=build /app/EXIT_STATUS_FILE_1/ /EXIT_STATUS_FILE_1
 COPY --from=build /app/EXIT_STATUS_FILE_2/ /EXIT_STATUS_FILE_2
