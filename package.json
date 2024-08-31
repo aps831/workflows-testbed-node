@@ -1,8 +1,15 @@
 {
-  "name": "testbed-node",
+  "name": "@aps831/testbed-node",
   "private": true,
   "version": "0.24.0",
   "type": "module",
+  "files": [
+    "*.js",
+    "!*.test.js"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
