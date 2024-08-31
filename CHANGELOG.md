@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.0] - 2024-08-31
+
+### Features
+
+- Test
+
+### Build
+
+- Update eslint config
+
 ## [0.23.0] - 2024-06-05
 
 ### Features
@@ -11,6 +21,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Restore branch [skip ci]
+- Update for v0.23.0 release [skip ci]
 
 ## [0.22.0] - 2024-06-05
 
