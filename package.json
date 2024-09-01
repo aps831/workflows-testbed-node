@@ -13,6 +13,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "sbom": "mkdir -p outputs/sbom && npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json || true",
     "test:unit:watch": "vitest watch --coverage",
     "test:unit:once": "vitest run --coverage",
     "test:integration:interactive": "node integration.js interactive",

@@ -18,7 +18,7 @@ jobs:
     uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@feat/npm-attestation # TODO
     with:
       templated-files: README.tpl.md
-      build-script: npm install && npm run-script build
+      build-script: npm install && npm run-script build && npm run-script sbom
       node-version: "20"
     secrets:
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
