@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.32.0] - 2024-09-01
+
+### Features
+
+- Test
+- Test
+- Test
+
 ## [0.29.0] - 2024-08-31
 
 ### Features
@@ -12,6 +20,10 @@ All notable changes to this project will be documented in this file.
 - Test
 - Test
 - Test
+
+### Miscellaneous Tasks
+
+- Update for v0.29.0 release [skip ci]
 
 ## [0.24.0] - 2024-08-31
 
