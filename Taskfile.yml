@@ -27,34 +27,18 @@ tasks:
     summary: Run audit
     desc: Run audit
     cmds:
-      - npm audit --omit=dev > checks/audit.txt || true
-      - cat checks/audit.txt
+      - npm run-script audit
   check:depcheck:
     summary: Run depcheck
     desc: Run depcheck
     cmds:
-      - npm_config_yes=true npx depcheck > checks/depcheck.txt || true
-      - cat checks/depcheck.txt
+      - npm run-script depcheck
   # Build
   build:host:
     summary: Build on host
     desc: Build on host
     cmds:
-      - rm -rf outputs
-      - rm -rf dist
-      - mkdir -p outputs/checks
-      - mkdir -p outputs/coverage
-      - mkdir -p outputs/sbom
-      - npm install
-      - npm audit --omit=dev > outputs/checks/audit.txt || true
-      - cat outputs/checks/audit.txt
-      - npm_config_yes=true npx depcheck > outputs/checks/depcheck.txt || true
-      - cat outputs/checks/depcheck.txt
-      - npm_config_yes=true npx @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json
-        || true
-      - npm run-script test:unit:once
-      - npm run-script build
-      - npm run-script test:integration:headless
+      - npm run-script full
   build:container:
     summary: Build in container
     desc: Build in container
