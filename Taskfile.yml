@@ -43,10 +43,16 @@ tasks:
     summary: Build in container
     desc: Build in container
     cmds:
-      - rm -rf outputs
-      - rm -rf dist
-      - docker build . --target output --progress=plain --output type=local,dest=.
-      - docker build . --target status --progress=plain
+      - |
+        # Clean
+        npm run-script clean
+
+        # Build Container
+        docker build -f Dockerfile . --build-arg DOCKER_GROUP_ID=$(getent group docker | cut -d: -f3) --progress=plain --sbom=false --provenance=false --tag testbed-node-builder
+
+        # Build Artifact
+        docker run -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm run-script full
+
   tool-versions:upgrade:repo:
     summary: Upgrade version in .tool-versions
     desc: Upgrade version in .tool-versions

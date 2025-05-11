@@ -14,11 +14,14 @@ permissions:
   attestations: write
 jobs:
   build:
-    # uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact.yaml@master
-    uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@master
+    uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact-v2.yaml@master
+    # uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@master
     with:
+      dockerfile: Dockerfile
+      volumes: ".:/app"
+      build-command: "npm run-script full"
       templated-files: README.tpl.md
-      build-script: npm install && npm run-script build && npm run-script sbom
-      node-version: "20"
+      # build-script: npm install && npm run-script build && npm run-script sbom
+      # node-version: "20"
     secrets:
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
