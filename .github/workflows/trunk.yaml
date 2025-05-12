@@ -9,5 +9,5 @@ jobs:
   trunk:
     uses: aps831/workflows/.github/workflows/trunk.yaml@master
     with:
-      node-version: 20.9.0
+      node-version: 22.15.0
       install-deps-script: npm ci

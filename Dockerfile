@@ -1,4 +1,4 @@
 # syntax=docker/dockerfile:1.3
-FROM node:20.9.0@sha256:cb7cd40ba6483f37f791e1aace576df449fc5f75332c19ff59e2c6064797160e AS build
+FROM node:22.15.0@sha256:3806a879a4e284e2960445f8316f4a92df8e502b5d4175056eff7b7752f5f23c
 USER node
 WORKDIR /app
