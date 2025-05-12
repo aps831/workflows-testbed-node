@@ -21,7 +21,7 @@
     "test:unit:once": "vitest run --coverage",
     "test:integration:interactive": "node integration.js interactive",
     "test:integration:headless": "node integration.js headless",
-    "full": "npm install && npm run clean && npm run audit && npm run depcheck && npm run sbom && npm run test:unit:once && npm run build && npm run test:integration:headless"
+    "full": "npm run clean && npm run audit && npm run depcheck && npm run sbom && npm run test:unit:once && npm run build && npm run test:integration:headless"
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^1.18.0",
