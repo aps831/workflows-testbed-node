@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { Client } from "pg";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { createCustomerTable, createCustomer, getCustomers } from "./counter";
