@@ -51,7 +51,7 @@ tasks:
         docker build -f Dockerfile . --build-arg DOCKER_GROUP_ID=$(getent group docker | cut -d: -f3) --progress=plain --sbom=false --provenance=false --tag testbed-node-builder
 
         # Build Artifact
-        docker run -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm run-script full
+        docker run -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm install && npm run-script full
 
   tool-versions:upgrade:repo:
     summary: Upgrade version in .tool-versions
