@@ -48,10 +48,12 @@ tasks:
         npm run-script clean
 
         # Build Container
-        docker build -f Dockerfile . --build-arg DOCKER_GROUP_ID=$(getent group docker | cut -d: -f3) --progress=plain --sbom=false --provenance=false --tag testbed-node-builder
+        USER_ID=$(id -u)
+        GROUP_ID=$(getent group docker | cut -d: -f3)
+        docker build -f Dockerfile . --build-arg USER_ID=$USER_ID --build-arg GROUP_ID=$GROUP_ID --progress=plain --sbom=false --provenance=false --tag testbed-node-builder
 
         # Build Artifact
-        docker run -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm run-script full
+        docker run --user $USER_ID:$GROUP_ID -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm run-script temp
 
   tool-versions:upgrade:repo:
     summary: Upgrade version in .tool-versions
