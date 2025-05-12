@@ -19,7 +19,7 @@ jobs:
     with:
       dockerfile: Dockerfile
       volumes: ".:/app"
-      build-command: "npm ci && npm run build"
+      build-command: "npm ci && npm run-script full"
       templated-files: README.tpl.md
       # build-script: npm install && npm run-script build && npm run-script sbom
       # node-version: "20"
