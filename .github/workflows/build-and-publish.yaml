@@ -14,7 +14,7 @@ permissions:
   attestations: write
 jobs:
   build:
-    uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact-v2.yaml@master
+    uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact-v2.yaml@refactor/test-output
     # uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@master
     with:
       dockerfile: Dockerfile
