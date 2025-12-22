@@ -14,7 +14,7 @@ describe("Customer Repository", () => {
   let postgresClient;
 
   beforeAll(async () => {
-    postgresContainer = await new PostgreSqlContainer().start();
+    postgresContainer = await new PostgreSqlContainer("postgres:18").start();
     postgresClient = new Client({ connectionString: postgresContainer.getConnectionUri() });
     await postgresClient.connect();
     await createCustomerTable(postgresClient);
