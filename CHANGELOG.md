@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD024 -->
 
+## [0.49.0] - 2025-12-23
+
+### 🚀 Features
+
+- Remove testcontainers logging
+
 ## [0.48.0] - 2025-12-23
 
 ### 🚀 Features
@@ -14,6 +20,7 @@
 ### ⚙️ Miscellaneous Tasks
 
 - Set branch to master [skip ci]
+- Update for v0.48.0 release [skip ci]
 
 ## [0.47.0] - 2025-05-26
 
@@ -146,7 +153,6 @@
 
 ### 🚀 Features
 
-- Test
 - Test
 
 ### ⚙️ Miscellaneous Tasks
