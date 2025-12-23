@@ -18,9 +18,9 @@
     "depcheck": "npx depcheck | tee outputs/checks/depcheck.txt",
     "sbom": "npx --yes @cyclonedx/cyclonedx-npm --output-file outputs/sbom/cyclonedx.json",
     "test:unit:watch": "vitest watch --coverage",
-    "test:unit:once": "vitest run --coverage",
+    "test:unit:once": "DEBUG=testcontainers* vitest run --coverage",
     "test:integration:interactive": "node integration.js interactive",
-    "test:integration:headless": "node integration.js headless",
+    "test:integration:headless": "DEBUG=testcontainers* node integration.js headless",
     "full": "npm run clean && npm ci && npm run audit && npm run depcheck && npm run sbom && npm run test:unit:once && npm run build && npm run test:integration:headless"
   },
   "devDependencies": {
