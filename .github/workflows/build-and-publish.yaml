@@ -13,11 +13,6 @@ permissions:
   id-token: write
   attestations: write
 jobs:
-  version:
-    runs-on: ubuntu-latest
-    steps:
-      - shell: bash
-        run: docker version
   build:
     uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-in-docker-directory-artifact-v2.yaml@master
     # uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@master
