@@ -1,7 +1,7 @@
 [
   {
     "description": "Node Version",
-    "value": "22.15.0",
+    "value": "22.21.1",
     "files": [
       {
         "filePath": "Dockerfile",
