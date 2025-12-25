@@ -53,7 +53,7 @@ tasks:
         docker build -f Dockerfile . --build-arg USER_ID=$USER_ID --build-arg GROUP_ID=$GROUP_ID --progress=plain --sbom=false --provenance=false --tag testbed-node-builder
 
         # Build Artifact
-        docker run --user $USER_ID:$GROUP_ID -v .:/app -v /var/run/docker.sock:/var/run/docker.sock testbed-node-builder npm run-script full
+        docker run --user $USER_ID:$GROUP_ID -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:$PWD -w $PWD testbed-node-builder npm run-script full
 
   tool-versions:upgrade:repo:
     summary: Upgrade version in .tool-versions
