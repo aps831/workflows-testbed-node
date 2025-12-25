@@ -1,10 +1,20 @@
 <!-- markdownlint-disable MD024 -->
 
+## [0.50.0] - 2025-12-25
+
+### 🚀 Features
+
+- Test mount of pwd
+
 ## [0.49.0] - 2025-12-23
 
 ### 🚀 Features
 
 - Remove testcontainers logging
+
+### ⚙️ Miscellaneous Tasks
+
+- Update for v0.49.0 release [skip ci]
 
 ## [0.48.0] - 2025-12-23
 
@@ -148,13 +158,3 @@
 ### ⚙️ Miscellaneous Tasks
 
 - Update for v0.39.0 release [skip ci]
-
-## [0.29.0] - 2024-08-31
-
-### 🚀 Features
-
-- Test
-
-### ⚙️ Miscellaneous Tasks
-
-- Update for v0.29.0 release [skip ci]
