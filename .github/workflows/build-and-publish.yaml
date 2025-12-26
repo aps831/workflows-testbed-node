@@ -18,7 +18,8 @@ jobs:
     # uses: aps831/workflows/.github/workflows/build-and-publish-nodejs-on-runner-package-artifact.yaml@master
     with:
       dockerfile: Dockerfile
-      build-command: "npm run-script full"
+      build-commands: |
+        npm run-script full
       templated-files: README.tpl.md
       # build-script: npm install && npm run-script build && npm run-script sbom
       # node-version: "20"
