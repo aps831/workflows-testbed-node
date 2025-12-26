@@ -1,10 +1,24 @@
 <!-- markdownlint-disable MD024 -->
 
+## [0.51.0] - 2025-12-26
+
+### 🚀 Features
+
+- Add ls to command
+
+### ⚙️ Miscellaneous Tasks
+
+- Update build command in workflow
+
 ## [0.50.0] - 2025-12-25
 
 ### 🚀 Features
 
 - Test mount of pwd
+
+### ⚙️ Miscellaneous Tasks
+
+- Update for v0.50.0 release [skip ci]
 
 ## [0.49.0] - 2025-12-23
 
@@ -144,7 +158,6 @@
 
 ### 🚀 Features
 
-- Test
 - Test
 - Test
 - Test
