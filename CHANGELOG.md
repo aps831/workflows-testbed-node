@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD024 -->
 
+## [0.52.0] - 2025-12-26
+
+### 🚀 Features
+
+- Try command in quotes
+- Try with no quotes
+
 ## [0.51.0] - 2025-12-26
 
 ### 🚀 Features
@@ -9,6 +16,7 @@
 ### ⚙️ Miscellaneous Tasks
 
 - Update build command in workflow
+- Update for v0.51.0 release [skip ci]
 
 ## [0.50.0] - 2025-12-25
 
@@ -158,7 +166,6 @@
 
 ### 🚀 Features
 
-- Test
 - Test
 - Test
 - Test

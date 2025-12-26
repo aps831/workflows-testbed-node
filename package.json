@@ -1,6 +1,6 @@
 {
   "name": "@aps831/testbed-node",
-  "version": "0.51.0",
+  "version": "0.52.0",
   "type": "module",
   "files": [
     "*.js",
